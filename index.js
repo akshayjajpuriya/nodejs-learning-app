@@ -4,9 +4,23 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const authRoutes = require('./routes/auth'); // <-- IMPORT THE ROUTER
 const dashboardRoutes = require('./routes/dashboard'); // <-- IMPORT NEW ROUTER
+const cors = require('cors');
 
-// 2. Create an instance of an Express application
+
+
+//Create an instance of an Express application
 const app = express();
+// Use the cors middleware
+// This tells your backend to accept requests from any origin.
+
+// app.use(cors());
+
+// For better security in a real production app, you would restrict it
+// to just your frontend's URL like this:
+
+app.use(cors({
+  origin: 'https://nodejs-learning-app.vercel.app'
+}));
 
 app.use(express.static('public'));  
 app.use(express.json()); // <-- MIDDLEWARE TO READ JSON FROM REQUESTS
