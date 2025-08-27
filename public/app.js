@@ -1,6 +1,8 @@
 // Get the form elements
 const signupForm = document.getElementById('signup-form');
 const loginForm = document.getElementById('login-form');
+const API_BASE_URL = 'https://nodejs-learning-app-nadb.onrender.com';
+
 
 // --- SIGNUP FORM EVENT LISTENER ---
 signupForm.addEventListener('submit', async (event) => {
@@ -13,7 +15,7 @@ signupForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('signup-password').value;
 
     // Send the data to the server
-    const response = await fetch('/api/signup', {
+    const response = await fetch(`${API_BASE_URL}/api/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName, lastName, email, password })
@@ -38,7 +40,7 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('login-password').value;
 
     // Send the data to the server
-    const response = await fetch('/api/login', {
+    const response = await fetch(`${API_BASE_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
