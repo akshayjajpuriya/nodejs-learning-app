@@ -13,7 +13,7 @@ const app = express();
 // Use the cors middleware
 // This tells your backend to accept requests from any origin.
 
-// app.use(cors());
+app.use(cors());
 
 // For better security in a real production app, you would restrict it
 // to just your frontend's URL like this:
